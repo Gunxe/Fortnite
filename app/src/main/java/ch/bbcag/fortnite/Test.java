@@ -12,12 +12,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import ch.bbcag.fortnite.helper.ShopJSONParser;
 import ch.bbcag.fortnite.model.Bundles;
@@ -34,11 +37,11 @@ public class Test extends AppCompatActivity {
     private void getBundles(String url){
         final ArrayAdapter<Bundles> bundlesInfoAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,  new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    Bundles bundle = ShopJSONParser.createBundleFromJsonString(response);
+                    List<Bundles> bundles = ShopJSONParser.createBundleFromJsonString(response);
                 }catch (JSONException e){
                     generateAlertDialog();
                 }
