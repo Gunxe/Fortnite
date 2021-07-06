@@ -28,10 +28,10 @@
             android:background="?attr/colorPrimary"
             app:tabIndicatorColor="@color/white"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/white" />
+            app:tabTextColor="@color/white"
+            app:tabTextAppearance="@style/Subtitles"
+            app:tabIconTint="@color/black" />
     </com.google.android.material.appbar.AppBarLayout>
-
-
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
