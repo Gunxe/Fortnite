@@ -19,7 +19,7 @@ public class ShopJSONParser {
         JSONArray entries = featured.getJSONArray("entries");
         for (int i = 0; i < entries.length(); i++) {
             JSONObject bundleObject = entries.getJSONObject(i);
-            bundle.setName();
+//            bundle.setName(bundleObject.getString());
         }
 
 
