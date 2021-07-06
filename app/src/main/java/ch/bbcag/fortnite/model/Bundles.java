@@ -2,6 +2,8 @@ package ch.bbcag.fortnite.model;
 
 import android.graphics.Color;
 
+import com.android.volley.toolbox.StringRequest;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public @Data class Bundles {
     private int price;
     private List<Item> items = new ArrayList<>();
     private String imageURL;
-    private Color background1;
-    private Color background2;
+    private String background1;
+    private String background2;
 
 }
