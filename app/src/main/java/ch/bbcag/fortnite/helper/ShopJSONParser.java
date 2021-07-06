@@ -33,8 +33,6 @@ public class ShopJSONParser {
             bundle.setBackground1("#" + colors.getString("Background_Color_A"));
             bundle.setBackground1("#" + colors.getString("Background_Color_B"));
         }
-
-
         return null;
     }
 }
