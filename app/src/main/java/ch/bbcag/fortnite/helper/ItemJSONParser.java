@@ -12,14 +12,13 @@ import ch.bbcag.fortnite.model.Item;
 
 public class ItemJSONParser {
     public static Item createItemFromJSONObject (JSONObject response) throws JSONException {
-        Item items = new Item();
         Item item = new Item();
         JSONObject ItemJSONObject = response.getJSONObject("data");
         JSONObject images = ItemJSONObject.getJSONObject("images");
         item.setName(ItemJSONObject.getString("name"));
         item.setIconImgURL(images.getString("icon"));
         item.setImageURL(images.getString("featured"));
-        if(item.getImageURL() == null){
+        if(item.getImageURL() == "null"){
             item.setImageURL((images.getString("icon")));
         }
         item.setDescription(ItemJSONObject.getString("description"));
