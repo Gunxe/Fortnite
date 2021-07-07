@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bundle_details">
+    tools:context=".bundle_details"
+    android:id="@+id/constraintLayoutItemView">
+
+
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/skinPicture"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="40dp"
@@ -24,7 +27,7 @@
         android:text="Preis"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/skinPicture"
         app:layout_constraintLeft_toRightOf="@+id/vbuck_icon"
         android:layout_marginRight="110dp"
         android:fontFamily="@font/fonts"/>
@@ -53,14 +56,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bundle_price_text" />
+
     <ProgressBar
         android:id="@+id/loading_bundle_item"
-        android:layout_width="50dp"
-
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutItemView"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutItemView"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
                     items.add(item.getItemId());
                 }
                 intent.putStringArrayListExtra("itemIds",  items);
-                intent.putExtra("price", bundles.get(position).getPrice());
+                intent.putExtra("price", String.valueOf(bundles.get(position).getPrice()));
                 context.startActivity(intent);
             }
         });

@@ -45,6 +45,7 @@ public class bundle_details extends AppCompatActivity {
         descriptionText = findViewById(R.id.skinDescription);
         priceText = findViewById(R.id.bundle_price_text);
         progressBar = findViewById(R.id.loading_bundle_item);
+
     }
 
     @Override
@@ -63,6 +64,7 @@ public class bundle_details extends AppCompatActivity {
     private int itemRekursion(ArrayList<String> itemIds, int index, ArrayList<Item> arrayList, RequestQueue queue ){
         if (index == itemIds.size()){
             setData();
+            progressBar.setVisibility(View.GONE);
             return 0;
         }else {
 
@@ -83,7 +85,6 @@ public class bundle_details extends AppCompatActivity {
                 }
             });
             queue.add(objectRequest);
-            progressBar.setVisibility(View.GONE);
             return 0;
         }
     }
@@ -106,7 +107,7 @@ public class bundle_details extends AppCompatActivity {
     private void setData(){
         priceText.setText(getIntent().getStringExtra("price"));
         descriptionText.setText(items.get(0).getDescription());
-        Picasso.get().load(items.get(0).getImageURL()).into((ImageView) findViewById(R.id.SkinIcon));
+        Picasso.get().load(items.get(0).getImageURL()).into((ImageView) findViewById(R.id.skinPicture));
 
     }
 }
