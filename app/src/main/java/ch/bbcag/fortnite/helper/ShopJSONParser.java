@@ -14,18 +14,12 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 import ch.bbcag.fortnite.model.Bundles;
+import ch.bbcag.fortnite.model.Item;
 
 public class ShopJSONParser {
     public static List<Bundles> createBundleFromJsonString(String response) throws JSONException {
         List<Bundles> bundles = new ArrayList<Bundles>();
-
-//        JSONObject jsonObject = response;
-//        JSONObject data = jsonObject.getJSONObject("data");
-//        JSONObject featured = data.getJSONObject("featured");
-//        JSONArray entries = featured.getJSONArray("entries");
-
         JSONArray entries = new JSONObject(response).getJSONObject("data").getJSONObject("featured").getJSONArray("entries");
-
         for (int i = 0; i < entries.length(); i++) {
             Bundles bundle = new Bundles();
             JSONObject bundleObject = entries.getJSONObject(i);
@@ -37,14 +31,26 @@ public class ShopJSONParser {
                 JSONObject imageObject =  bundleObject.getJSONObject("newDisplayAsset").getJSONArray("materialInstances").getJSONObject(0).getJSONObject("images");
                 bundle.setImageURL(imageObject.getString("OfferImage"));
             }
-//            JSONObject newDisplayAsset = bundleObject.getJSONObject("newDisplayAsset");
-//
-//            JSONArray materialInstances = newDisplayAsset.getJSONArray("materialInstances");
-//            JSONObject materialInstancesObject = materialInstances.getJSONObject(0);
             JSONObject colors =  bundleObject.getJSONObject("newDisplayAsset").getJSONArray("materialInstances").getJSONObject(0).getJSONObject("colors");
             bundle.setPrice(bundleObject.getInt("finalPrice"));
             bundle.setBackground1("#" + colors.getString("Background_Color_A"));
             bundle.setBackground1("#" + colors.getString("Background_Color_B"));
+
+            //Items
+            JSONArray ItemsArray = bundleObject.getJSONArray("items");
+
+            List<Item> items = new ArrayList<>();
+            for (int j = 0; j < ItemsArray.length(); j++) {
+                Item item = new Item();
+                JSONObject ItemJSONObject = ItemsArray.getJSONObject(j);
+                JSONObject images = ItemJSONObject.getJSONObject("images");
+                item.setName(ItemJSONObject.getString("name"));
+                item.setIconImgURL(images.getString("icon"));
+                item.setImageURL("featured");
+
+                items.add(item);
+            }
+            bundle.setItems(items);
             bundles.add(bundle);
         }
         return bundles;
