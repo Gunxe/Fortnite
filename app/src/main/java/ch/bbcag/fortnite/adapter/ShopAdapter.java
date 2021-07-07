@@ -7,6 +7,7 @@ import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,11 +19,13 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ch.bbcag.fortnite.R;
 import ch.bbcag.fortnite.bundle_details;
 import ch.bbcag.fortnite.model.Bundles;
+import ch.bbcag.fortnite.model.Item;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
     List<Bundles> bundles;
@@ -44,13 +47,19 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
-        holder.preis.setText(""+bundles.get(position).getPrice());
+        holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
         Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
         holder.shopLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ArrayList<String> items = new ArrayList<String>();
                 Intent intent = new Intent(context, bundle_details.class);
-                intent.putExtra("bundle", (Parcelable) bundles.get(position));
+                for (Item item : bundles.get(position).getItems()) {
+                    items.add(item.getItemId());
+                }
+                intent.putStringArrayListExtra("itemIds",  items);
+                intent.putExtra("price", bundles.get(position).getPrice());
+                context.startActivity(intent);
             }
         });
     }

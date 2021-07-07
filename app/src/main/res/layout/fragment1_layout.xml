@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_gravity="center"
@@ -10,9 +11,12 @@
         android:layout_height="match_parent"/>
 
     <ProgressBar
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
         android:id="@+id/loading_bundle_details_progress"
+        android:layout_width="50dp"
+
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/reclyclerView"
+        app:layout_constraintStart_toStartOf="@+id/reclyclerView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

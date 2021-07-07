@@ -36,7 +36,7 @@ public class Fragment2 extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        addArticlesToList();
+     //   addArticlesToList();
         return inflater.inflate(R.layout.fragment2_layout, container, false);
     }
 
@@ -48,7 +48,7 @@ public class Fragment2 extends Fragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        textView.setText("Response: " + response.toString());
+                      //  textView.setText("Response: " + response.toString());
                     }
                 }, new Response.ErrorListener() {
 
@@ -60,11 +60,11 @@ public class Fragment2 extends Fragment {
                 });
 
         // Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+        //MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
 
         getView().findViewById(R.id.articleList);
         ArrayAdapter<News> newsAdapter = new ArrayAdapter<News>(getView().getContext().getApplicationContext(), android.R.layout.simple_list_item_1);
-        newsAdapter.addAll(NewsJSONParser.createArticleFromJsonString());
+       // newsAdapter.addAll(NewsJSONParser.createArticleFromJsonString());
         articles.setAdapter(newsAdapter);
     }
 }

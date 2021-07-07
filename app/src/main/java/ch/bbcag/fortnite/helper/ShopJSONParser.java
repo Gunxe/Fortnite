@@ -48,7 +48,7 @@ public class ShopJSONParser {
                 item.setIconImgURL(images.getString("icon"));
                 item.setImageURL("featured");
                 item.setDescription(ItemJSONObject.getString("description"));
-
+                item.setItemId(ItemJSONObject.getString("id"));
                 items.add(item);
             }
             bundle.setItems(items);
