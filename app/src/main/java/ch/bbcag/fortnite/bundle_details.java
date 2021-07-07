@@ -1,6 +1,7 @@
 package ch.bbcag.fortnite;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -33,6 +35,7 @@ public class bundle_details extends AppCompatActivity {
     TextView descriptionText, priceText;
     ArrayList<Item> items = new ArrayList<Item>();
     ProgressBar progressBar;
+    ConstraintLayout container;
     String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
     Bundles bundle;
 
@@ -45,6 +48,7 @@ public class bundle_details extends AppCompatActivity {
         descriptionText = findViewById(R.id.skinDescription);
         priceText = findViewById(R.id.bundle_price_text);
         progressBar = findViewById(R.id.loading_bundle_item);
+        container = findViewById(R.id.container_test);
 
     }
 
@@ -65,6 +69,7 @@ public class bundle_details extends AppCompatActivity {
         if (index == itemIds.size()){
             setData();
             progressBar.setVisibility(View.GONE);
+            container.setVisibility(View.VISIBLE);
             return 0;
         }else {
 
@@ -91,6 +96,7 @@ public class bundle_details extends AppCompatActivity {
 
     private void generateAlertDialog() {
         progressBar.setVisibility(View.GONE);
+        container.setVisibility(View.VISIBLE);
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
