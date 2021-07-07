@@ -40,13 +40,13 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
-        holder.preis.setText(bundles.get(position).getPrice());
+        holder.preis.setText(""+bundles.get(position).getPrice());
         Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return bundles.size();
     }
 
     public class ShopViewHolder extends RecyclerView.ViewHolder{

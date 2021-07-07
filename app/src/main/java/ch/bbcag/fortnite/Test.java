@@ -25,7 +25,7 @@ import java.util.List;
 import ch.bbcag.fortnite.helper.ShopJSONParser;
 import ch.bbcag.fortnite.model.Bundles;
 
-public class Test extends AppCompatActivity {
+public class    Test extends AppCompatActivity {
     private static final String API_URL = "https://fortnite-api.com/v2/shop/br";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class Test extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
-                    List<Bundles> bundles = ShopJSONParser.createBundleFromJsonString(response);
-                }catch (JSONException e){
+                    //List<Bundles> bundles = ShopJSONParser.createBundleFromJsonString(response);
+                }catch (Exception e){
                     generateAlertDialog();
                 }
             }
@@ -68,4 +68,6 @@ public class Test extends AppCompatActivity {
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
+
+
 }
