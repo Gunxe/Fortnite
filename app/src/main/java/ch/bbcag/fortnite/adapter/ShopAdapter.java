@@ -2,6 +2,7 @@ package ch.bbcag.fortnite.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Parcelable;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -49,6 +50,9 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
         holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
         Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
+        holder.iconImage.setBackgroundColor(Color.parseColor("#"+bundles.get(position).getBackground1()));
+        holder.background2.setBackgroundColor(Color.parseColor("#"+bundles.get(position).getBackground2()));
+
         holder.shopLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,13 +75,14 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     public class ShopViewHolder extends RecyclerView.ViewHolder{
         TextView preis;
-        ImageView iconImage;
+        ImageView iconImage, background2;
         ConstraintLayout shopLayout;
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             preis = itemView.findViewById(R.id.bundlePrice);
             iconImage = itemView.findViewById(R.id.SkinIcon);
+            background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
         }
     }
