@@ -19,8 +19,8 @@ public class ItemJSONParser {
         item.setName(ItemJSONObject.getString("name"));
         item.setIconImgURL(images.getString("icon"));
         item.setImageURL(images.getString("featured"));
-        if(item.getImageURL() == "null"){
-            item.setImageURL(images.getString("icon"));
+        if(item.getImageURL() == null){
+            item.setImageURL((images.getString("icon")));
         }
         item.setDescription(ItemJSONObject.getString("description"));
         item.setItemId(ItemJSONObject.getString("id"));

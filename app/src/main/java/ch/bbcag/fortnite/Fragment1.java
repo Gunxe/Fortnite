@@ -3,6 +3,7 @@ package ch.bbcag.fortnite;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.sax.TextElementListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ public class Fragment1 extends Fragment {
     String API_URL = "https://fortnite-api.com/v2/shop/br";
     ProgressBar progressBar;
     RecyclerView recyclerView;
+    boolean test = false;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -50,13 +52,16 @@ public class Fragment1 extends Fragment {
     public void onStart() {
         System.out.println("ner Fige onstart");
         super.onStart();
-        recyclerView = getView().findViewById(R.id.reclyclerView);
-        progressBar = getView().findViewById(R.id.loading_bundle_details_progress);
-        getBundles();
+        if (!test){
+            recyclerView = getView().findViewById(R.id.reclyclerView);
+            progressBar = getView().findViewById(R.id.loading_bundle_details_progress);
+            getBundles();
 
-        ShopAdapter shopAdapter = new ShopAdapter(getContext(), bundles );
-        recyclerView.setAdapter(shopAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            ShopAdapter shopAdapter = new ShopAdapter(getContext(), bundles );
+            recyclerView.setAdapter(shopAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            test = true;
+        }
     }
 
     private void getBundles() {
