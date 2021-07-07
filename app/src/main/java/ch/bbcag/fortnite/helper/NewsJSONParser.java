@@ -10,10 +10,10 @@ import java.util.List;
 import ch.bbcag.fortnite.model.News;
 
 public class NewsJSONParser {
-    public static List<News> createArticleFromJsonString(String response) throws JSONException {
+    public static List<News> createArticleFromJsonString(JSONObject response) throws JSONException {
         List<News> articles = new ArrayList<News>();
 
-        JSONArray motds = new JSONObject(response).getJSONObject("data").getJSONObject("br").getJSONArray("motds");
+        JSONArray motds = response.getJSONObject("data").getJSONObject("br").getJSONArray("motds");
 
         for (int i = 0; i < motds.length(); i++) {
             News article = new News();

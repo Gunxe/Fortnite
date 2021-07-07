@@ -36,33 +36,32 @@ public class Fragment2 extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        articles = getView().findViewById(R.id.articleList);
         addArticlesToList();
         return inflater.inflate(R.layout.fragment2_layout, container, false);
     }
 
     private void addArticlesToList() {
+
         String url = "https://fortnite-api.com/v2/news";
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        textView.setText("Response: " + response.toString());
+                        try {
+                            articles.NewsJSONParser.createArticleFromJsonString(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
-
+                        error.printStackTrace();
                     }
                 });
-
-        // Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-
-        getView().findViewById(R.id.articleList);
         ArrayAdapter<News> newsAdapter = new ArrayAdapter<News>(getView().getContext().getApplicationContext(), android.R.layout.simple_list_item_1);
         newsAdapter.addAll(NewsJSONParser.createArticleFromJsonString());
         articles.setAdapter(newsAdapter);
