@@ -8,4 +8,5 @@ public @Data class Item {
     private String imageURL;
     private String description;
     private String itemId;
+
 }

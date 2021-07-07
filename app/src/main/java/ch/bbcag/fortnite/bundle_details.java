@@ -25,14 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ch.bbcag.fortnite.helper.ItemJSONParser;
-import ch.bbcag.fortnite.helper.ShopJSONParser;
 import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
 
 public class bundle_details extends AppCompatActivity {
     ImageView skinImage;
     TextView descriptionText, priceText;
-    List<Item> items = new ArrayList<Item>();
+    ArrayList<Item> items = new ArrayList<Item>();
     ProgressBar progressBar;
     String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
     Bundles bundle;
@@ -52,19 +51,27 @@ public class bundle_details extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         getItems();
-        setData();
+
     }
 
     private void getItems() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        for (String itemId : getIntent().getStringArrayListExtra("itemIds")) {
-            JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, API_URL + itemId, null, new Response.Listener<JSONObject>() {
+        itemRekursion(getIntent().getStringArrayListExtra("itemIds"), 0, items, queue);
+
+    }
+
+    private int itemRekursion(ArrayList<String> itemIds, int index, ArrayList<Item> arrayList, RequestQueue queue ){
+        if (index == itemIds.size()){
+            setData();
+            return 0;
+        }else {
+
+            JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, API_URL + itemIds.get(index), null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-
                     try {
-                        items.add(ItemJSONParser.createItemFromJSONObject(response));
-                        progressBar.setVisibility(View.GONE);
+                        arrayList.add(ItemJSONParser.createItemFromJSONObject(response));
+                        itemRekursion(itemIds, index + 1, arrayList,queue);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -76,8 +83,9 @@ public class bundle_details extends AppCompatActivity {
                 }
             });
             queue.add(objectRequest);
+            progressBar.setVisibility(View.GONE);
+            return 0;
         }
-
     }
 
     private void generateAlertDialog() {
@@ -98,6 +106,7 @@ public class bundle_details extends AppCompatActivity {
     private void setData(){
         priceText.setText(getIntent().getStringExtra("price"));
         descriptionText.setText(items.get(0).getDescription());
-        Picasso.get().load(items.get(0).getImageURL()).into(skinImage);
+        Picasso.get().load(items.get(0).getImageURL()).into((ImageView) findViewById(R.id.SkinIcon));
+
     }
 }
