@@ -67,4 +67,5 @@
         app:layout_constraintEnd_toEndOf="@+id/constraintLayoutItemView"
         app:layout_constraintStart_toStartOf="@+id/constraintLayoutItemView"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
