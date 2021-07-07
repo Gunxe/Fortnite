@@ -42,11 +42,13 @@ public class Fragment1 extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        System.out.println("ner Fige oncreate");
         return inflater.inflate(R.layout.fragment1_layout, container, false);
     }
 
     @Override
     public void onStart() {
+        System.out.println("ner Fige onstart");
         super.onStart();
         recyclerView = getView().findViewById(R.id.reclyclerView);
         progressBar = getView().findViewById(R.id.loading_bundle_details_progress);

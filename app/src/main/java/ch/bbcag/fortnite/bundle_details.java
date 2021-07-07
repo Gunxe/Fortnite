@@ -115,5 +115,6 @@ public class bundle_details extends AppCompatActivity {
         descriptionText.setText(items.get(0).getDescription());
         Picasso.get().load(items.get(0).getImageURL()).into((ImageView) findViewById(R.id.skinPicture));
 
+
     }
 }
