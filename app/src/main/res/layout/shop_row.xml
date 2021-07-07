@@ -14,13 +14,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/background2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
                 android:id="@+id/SkinIcon"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/fortnite_icon" />
-
+                app:srcCompat="@drawable/fortnite_icon"/>
             <TextView
                 android:id="@+id/bundlePrice"
                 android:layout_width="wrap_content"
