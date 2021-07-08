@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.FürFortnite" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item> <!-- Navbar Farbe -->
-        <item name="colorPrimaryVariant">@color/purple_700</item> <!-- oben bei der Zeit -->
+        <item name="colorPrimary">@color/violet</item> <!-- Navbar Farbe -->
+        <item name="colorPrimaryVariant">@color/purple_500</item> <!-- oben bei der Zeit -->
         <item name="colorOnPrimary">@color/white</item> <!-- keine Ahnung -->
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item> <!-- keine Ahnung -->
