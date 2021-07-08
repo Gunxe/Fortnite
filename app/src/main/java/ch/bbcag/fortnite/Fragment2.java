@@ -96,7 +96,7 @@ public class Fragment2 extends Fragment {
                 getActivity().finish();
             }
         });
-        dialogBuilder.setMessage("Die News konnten nicht geladen werden. Versuche es später nochmals.").setTitle("Fehler");
+        dialogBuilder.setMessage("Die News konnten nicht geladen werden, überprüfe deine Internetverbindung und versuche es erneut.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }

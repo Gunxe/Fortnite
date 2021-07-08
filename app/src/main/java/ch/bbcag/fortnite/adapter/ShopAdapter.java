@@ -3,12 +3,9 @@ package ch.bbcag.fortnite.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Parcelable;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ch.bbcag.fortnite.R;
-import ch.bbcag.fortnite.bundle_details;
+import ch.bbcag.fortnite.BundleDetails;
 import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
 
@@ -57,7 +54,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             @Override
             public void onClick(View v) {
                 ArrayList<String> items = new ArrayList<String>();
-                Intent intent = new Intent(context, bundle_details.class);
+                Intent intent = new Intent(context, BundleDetails.class);
                 for (Item item : bundles.get(position).getItems()) {
                     items.add(item.getItemId());
                 }

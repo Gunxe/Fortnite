@@ -30,7 +30,7 @@ import ch.bbcag.fortnite.helper.ItemJSONParser;
 import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
 
-public class bundle_details extends AppCompatActivity {
+public class BundleDetails extends AppCompatActivity {
     ImageView skinImage;
     TextView descriptionText, priceText;
     ArrayList<Item> items = new ArrayList<Item>();
