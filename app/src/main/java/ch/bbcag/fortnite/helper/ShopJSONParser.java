@@ -13,7 +13,14 @@ import ch.bbcag.fortnite.model.Item;
 public class ShopJSONParser {
     public static List<Bundles> createBundleFromObject(JSONObject response) throws JSONException {
         List<Bundles> bundles = new ArrayList<Bundles>();
-        JSONArray entries = response.getJSONObject("data").getJSONObject("featured").getJSONArray("entries");
+        JSONArray featuredEntries = response.getJSONObject("data").getJSONObject("featured").getJSONArray("entries");
+        JSONArray dailyEntries = response.getJSONObject("data").getJSONObject("daily").getJSONArray("entries");
+        readEntries(featuredEntries, bundles);
+        readEntries(dailyEntries, bundles);
+        return bundles;
+    }
+
+    private static void readEntries(JSONArray entries, List<Bundles> bundles) throws JSONException{
         for (int i = 0; i < entries.length(); i++) {
             Bundles bundle = new Bundles();
             JSONObject bundleObject = entries.getJSONObject(i);
@@ -48,6 +55,5 @@ public class ShopJSONParser {
             bundle.setItems(items);
             bundles.add(bundle);
         }
-        return bundles;
     }
 }
