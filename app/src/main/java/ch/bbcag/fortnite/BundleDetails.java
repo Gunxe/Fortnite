@@ -5,11 +5,13 @@ import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.transition.Slide;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -54,14 +56,17 @@ public class BundleDetails extends AppCompatActivity {
         progressBar = findViewById(R.id.loading_bundle_item);
         container = findViewById(R.id.container_test);
         imageSlider = findViewById(R.id.imageSlider);
+        getItems();
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        getItems();
-
     }
 
     private void getItems() {
@@ -77,7 +82,6 @@ public class BundleDetails extends AppCompatActivity {
             container.setVisibility(View.VISIBLE);
             return 0;
         }else {
-
             JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, API_URL + itemIds.get(index), null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -119,13 +123,19 @@ public class BundleDetails extends AppCompatActivity {
         priceText.setText(getIntent().getStringExtra("price"));
         descriptionText.setText(items.get(0).getDescription());
         ArrayList<SlideModel> images = new ArrayList<>();
-
         for (Item item : items) {
-            // Drawable image = Glide.with(this).load(item.getImageURL()).submit().get();
             images.add(new SlideModel(item.getImageURL(), null ));
-
         }
-       // Picasso.get().load(items.get(0).getImageURL()).into(images);
         imageSlider.setImageList(images);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
