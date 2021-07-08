@@ -60,7 +60,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
                 holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.green));
                 break;
             default:
-                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.gray));
+                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.red));
         }
 
 
