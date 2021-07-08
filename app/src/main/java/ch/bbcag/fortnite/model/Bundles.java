@@ -10,7 +10,4 @@ public @Data class Bundles {
     private int price;
     private List<Item> items = new ArrayList<>();
     private String imageURL;
-    private String background1;
-    private String background2;
-
 }

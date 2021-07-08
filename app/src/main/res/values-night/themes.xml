@@ -3,7 +3,7 @@
     <style name="Theme.FürFortnite" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -19,9 +19,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FürFortnite.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
-        <item name="color">@color/purple</item>
-    </style>
+    <style name="Theme.FürFortnite.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.FürFortnite.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

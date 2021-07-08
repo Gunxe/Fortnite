@@ -8,16 +8,14 @@
     android:id="@+id/constraintLayoutItemView"
     android:background="@drawable/gradient_bg">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:ignore="MissingClass"
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="0dp">
-
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imageSlider"
@@ -48,8 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="64dp"
-            android:fontFamily="@font/fonts"
-            android:text="Preis"
+            android:fontFamily="@font/burbank_black"
+            android:text=""
             android:textColor="#FFFFFF"
             android:textSize="50dp"
             app:layout_constraintStart_toEndOf="@+id/vbuck_icon"
@@ -97,5 +95,4 @@
         app:layout_constraintEnd_toEndOf="@+id/constraintLayoutItemView"
         app:layout_constraintStart_toStartOf="@+id/constraintLayoutItemView"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,8 +56,9 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             holder.name.setText(bundles.get(position).getItems().get(0).getName());
             holder.name.setTextSize(18F);
         }
+
         Glide.with(context).load(bundles.get(position).getImageURL()).transform(new CenterCrop()).into(holder.iconImage);
-        //Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
+
         switch (bundles.get(position).getItems().get(0).getRarity())
         {
             case "common":
@@ -86,9 +87,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         }
         holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.balck_transparent));
 
-
-
-
         holder.shopLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,20 +111,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     }
 
     public class ShopViewHolder extends RecyclerView.ViewHolder {
-        TextView preis;
         ImageView iconImage, background2;
         ConstraintLayout shopLayout;
-        CardView cardView;
         TextView name;
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-           // preis = itemView.findViewById(R.id.bundlePrice);
             iconImage = itemView.findViewById(R.id.SkinIcon);
             background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
             name = itemView.findViewById(R.id.textView_shop);
         }
     }
-
 }

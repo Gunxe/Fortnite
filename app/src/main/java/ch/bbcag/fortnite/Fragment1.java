@@ -64,8 +64,6 @@ public class Fragment1 extends Fragment {
         }
     }
 
-
-
     private void getBundles() {
         RequestQueue queue = Volley.newRequestQueue(getContext().getApplicationContext());
 
@@ -104,6 +102,4 @@ public class Fragment1 extends Fragment {
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
-
-
 }

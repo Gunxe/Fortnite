@@ -9,5 +9,4 @@ public @Data class Item {
     private String description;
     private String itemId;
     private String rarity;
-
 }

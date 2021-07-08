@@ -19,7 +19,7 @@
             android:gravity="center"
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
-            android:fontFamily="@font/fonts"
+            android:fontFamily="@font/burbank_black"
             android:text="@string/app_name"
             android:textSize="32dp"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
@@ -32,7 +32,7 @@
             app:tabIndicatorColor="@color/white"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/white"
-            app:tabTextAppearance="@style/Subtitles"
+            app:tabTextAppearance="@style/subtitles"
             app:tabIconTint="@color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -41,5 +41,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

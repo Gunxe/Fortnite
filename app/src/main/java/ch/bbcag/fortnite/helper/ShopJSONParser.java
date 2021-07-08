@@ -34,10 +34,7 @@ public class ShopJSONParser {
             }
             JSONObject colors =  bundleObject.getJSONObject("newDisplayAsset").getJSONArray("materialInstances").getJSONObject(0).getJSONObject("colors");
             bundle.setPrice(bundleObject.getInt("finalPrice"));
-            bundle.setBackground1(colors.getString("Background_Color_A"));
-            bundle.setBackground2(colors.getString("Background_Color_B"));
 
-            //Items
             JSONArray itemsArray = bundleObject.getJSONArray("items");
 
             List<Item> items = new ArrayList<>();
