@@ -43,6 +43,7 @@ public class Fragment2 extends Fragment {
     private static final String NEWS_URL = "https://fortnite-api.com/v2/news";
     ProgressBar progressBar;
     RecyclerView recyclerView;
+    boolean alreadyStarted = false;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -54,6 +55,7 @@ public class Fragment2 extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        if (!alreadyStarted){
         progressBar = getView().findViewById(R.id.loading_news_progress);
         recyclerView = getView().findViewById(R.id.recyclerView_news);
         getNews();
@@ -61,6 +63,8 @@ public class Fragment2 extends Fragment {
         NewsAdapter newsAdapter = new NewsAdapter(getContext(), articles);
         recyclerView.setAdapter(newsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        alreadyStarted = true;
+        }
     }
 
     private void getNews() {
