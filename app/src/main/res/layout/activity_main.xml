@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.FürFortnite.AppBarOverlay"
-        android:background="@color/violet">
+        android:background="@color/purple">
 
         <TextView
             android:id="@+id/title"
