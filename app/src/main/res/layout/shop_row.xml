@@ -8,7 +8,9 @@
     android:layout_marginRight="15dp"
     android:layout_marginBottom="15dp"
     android:id="@+id/showLayout"
-    android:padding="5dp">
+    android:padding="5dp"
+    app:layout_constraintCircleRadius="15dp">
+
 
     <ImageView
         android:id="@+id/background2"
@@ -38,4 +40,5 @@
 <!--                app:layout_constraintEnd_toEndOf="parent"-->
 <!--                app:layout_constraintStart_toStartOf="parent"-->
 <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

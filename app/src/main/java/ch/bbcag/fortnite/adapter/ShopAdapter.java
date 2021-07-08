@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,6 +66,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             default:
                 holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
         }
+        holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.balck_transparent));
+
 
 
 
@@ -92,6 +95,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         TextView preis;
         ImageView iconImage, background2;
         ConstraintLayout shopLayout;
+        CardView cardView;
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -99,7 +103,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             iconImage = itemView.findViewById(R.id.SkinIcon);
             background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
-
+            cardView = itemView.findViewById(R.id.cardView_ShopRow);
         }
     }
 
