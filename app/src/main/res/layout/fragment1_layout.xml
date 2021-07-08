@@ -8,7 +8,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reclyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"/>
 
     <ProgressBar
         android:id="@+id/loading_bundle_details_progress"

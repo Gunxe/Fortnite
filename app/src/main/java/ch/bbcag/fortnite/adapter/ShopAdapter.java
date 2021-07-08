@@ -46,21 +46,21 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
-        holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
+        //holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
         Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
         switch (bundles.get(position).getItems().get(0).getRarity())
         {
             case "rare":
-                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.blue));
+                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.blue));
                 break;
             case "epic":
-                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.purple));
+                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.purple));
                 break;
             case "uncommon":
-                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.green));
+                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.green));
                 break;
             default:
-                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.red));
+                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.gray));
         }
 
 
@@ -92,7 +92,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            preis = itemView.findViewById(R.id.bundlePrice);
+           // preis = itemView.findViewById(R.id.bundlePrice);
             iconImage = itemView.findViewById(R.id.SkinIcon);
             background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
