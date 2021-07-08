@@ -59,17 +59,29 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         //Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
         switch (bundles.get(position).getItems().get(0).getRarity())
         {
-            case "rare":
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.blue));
-                break;
-            case "epic":
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.purple));
+            case "common":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.common));
                 break;
             case "uncommon":
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.green));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.uncommon));
+                break;
+            case "rare":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.rare));
+                break;
+            case "epic":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.epic));
+                break;
+            case "legendary":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.legendary));
+                break;
+            case "marvel":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.marvel));
+                break;
+            case "dc":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.dc));
                 break;
             default:
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.defaultRarity));
         }
         holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.balck_transparent));
 
