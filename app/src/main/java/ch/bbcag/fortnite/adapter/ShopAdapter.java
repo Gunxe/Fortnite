@@ -49,7 +49,12 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
-        //holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
+        if(bundles.get(position).getName() != null){
+            holder.name.setText(bundles.get(position).getName());
+            holder.name.setTextSize(18F);
+        }else {
+            holder.name.setText(bundles.get(position).getItems().get(0).getName());
+        }
         Glide.with(context).load(bundles.get(position).getImageURL()).transform(new CenterCrop()).into(holder.iconImage);
         //Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
         switch (bundles.get(position).getItems().get(0).getRarity())
@@ -91,11 +96,12 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         return bundles.size();
     }
 
-    public class ShopViewHolder extends RecyclerView.ViewHolder{
+    public class ShopViewHolder extends RecyclerView.ViewHolder {
         TextView preis;
         ImageView iconImage, background2;
         ConstraintLayout shopLayout;
         CardView cardView;
+        TextView name;
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -103,7 +109,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             iconImage = itemView.findViewById(R.id.SkinIcon);
             background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
-            cardView = itemView.findViewById(R.id.cardView_ShopRow);
+            name = itemView.findViewById(R.id.textView_shop);
         }
     }
 

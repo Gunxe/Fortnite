@@ -10,74 +10,81 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container_test"
-        android:visibility="gone"
-        tools:ignore="MissingClass">
-
-
-
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/imageSlider"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:visibility="visible"
-        app:iss_auto_cycle="true"
-        app:iss_period="3000" />
+        tools:ignore="MissingClass"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    <ImageView
-        android:id="@+id/skinPicture"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fortnite_icon"
-        android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/bundle_price_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Preis"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintLeft_toRightOf="@+id/vbuck_icon"
-        android:layout_marginRight="110dp"
-        android:fontFamily="@font/fonts"/>
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/imageSlider"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="40dp"
+            android:visibility="visible"
+            app:iss_auto_cycle="true"
+            app:iss_period="3000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/vbuck_icon"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:src="@drawable/vbuck"
-        android:layout_marginLeft="110dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bundle_price_text"
-        app:layout_constraintRight_toLeftOf="@+id/bundle_price_text"
-        app:layout_constraintStart_toStartOf="parent"
+        <ImageView
+            android:id="@+id/skinPicture"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="40dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/fortnite_icon" />
 
-        app:layout_constraintTop_toTopOf="@+id/bundle_price_text" />
+        <TextView
+            android:id="@+id/bundle_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/fonts"
+            android:text="Preis"
+            android:textColor="#FFFFFF"
+            android:textSize="50dp"
+            app:layout_constraintStart_toEndOf="@+id/vbuck_icon"
+            app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
 
-    <TextView
-        android:id="@+id/skinDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:text="Hallo Welt Kanst du micht hören du darfst mich nicht beim chatten stören."
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bundle_price_text" />
+        <ImageView
+            android:id="@+id/vbuck_icon"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="115dp"
+
+            android:src="@drawable/vbuck"
+            app:layout_constraintBottom_toBottomOf="@+id/bundle_price_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bundle_price_text"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/skinDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/burbank_light"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bundle_price_text" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ProgressBar
