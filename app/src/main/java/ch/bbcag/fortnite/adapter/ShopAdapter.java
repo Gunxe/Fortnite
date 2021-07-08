@@ -51,10 +51,10 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
         if(bundles.get(position).getName() != null){
             holder.name.setText(bundles.get(position).getName());
-            holder.name.setTextSize(14F);
+            holder.name.setTextSize(16F);
         }else {
             holder.name.setText(bundles.get(position).getItems().get(0).getName());
-            holder.name.setTextSize(18F);
+            holder.name.setTextSize(16F);
         }
 
         Glide.with(context).load(bundles.get(position).getImageURL()).transform(new CenterCrop()).into(holder.iconImage);

@@ -98,7 +98,7 @@ public class Fragment1 extends Fragment {
                 getActivity().finish();
             }
         });
-        dialogBuilder.setMessage("Der Shop konnte nicht geladen werden, überprüfe deine Internetverbindung und versuche es erneut.").setTitle("Fehler");
+        dialogBuilder.setMessage("Die Seite konnte nicht geladen werden, überprüfe deine Internetverbindung und versuche es erneut.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
