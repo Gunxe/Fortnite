@@ -59,7 +59,7 @@
             android:id="@+id/vbuck_icon"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_marginStart="115dp"
+            android:layout_marginStart="100dp"
 
             android:src="@drawable/vbuck"
             app:layout_constraintBottom_toBottomOf="@+id/bundle_price_text"
