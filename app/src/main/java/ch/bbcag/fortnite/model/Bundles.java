@@ -1,9 +1,5 @@
 package ch.bbcag.fortnite.model;
 
-import android.graphics.Color;
-
-import com.android.volley.toolbox.StringRequest;
-
 import java.util.ArrayList;
 import java.util.List;
 
