@@ -2,7 +2,9 @@ package ch.bbcag.fortnite;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.transition.Slide;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -17,12 +19,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import ch.bbcag.fortnite.helper.ItemJSONParser;
 import ch.bbcag.fortnite.model.Bundles;
@@ -35,7 +41,7 @@ public class BundleDetails extends AppCompatActivity {
     ProgressBar progressBar;
     ConstraintLayout container;
     final String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
-    Bundles bundle;
+    ImageSlider imageSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class BundleDetails extends AppCompatActivity {
         priceText = findViewById(R.id.bundle_price_text);
         progressBar = findViewById(R.id.loading_bundle_item);
         container = findViewById(R.id.container_test);
+        imageSlider = findViewById(R.id.imageSlider);
 
     }
 
@@ -111,6 +118,14 @@ public class BundleDetails extends AppCompatActivity {
     private void setData(){
         priceText.setText(getIntent().getStringExtra("price"));
         descriptionText.setText(items.get(0).getDescription());
-        Picasso.get().load(items.get(0).getImageURL()).into((ImageView) findViewById(R.id.skinPicture));
+        ArrayList<SlideModel> images = new ArrayList<>();
+
+        for (Item item : items) {
+            // Drawable image = Glide.with(this).load(item.getImageURL()).submit().get();
+            images.add(new SlideModel(item.getImageURL(), null ));
+
+        }
+       // Picasso.get().load(items.get(0).getImageURL()).into(images);
+        imageSlider.setImageList(images);
     }
 }

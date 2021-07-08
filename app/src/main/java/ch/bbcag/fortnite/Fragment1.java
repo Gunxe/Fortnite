@@ -34,7 +34,7 @@ import ch.bbcag.fortnite.model.Bundles;
 
 public class Fragment1 extends Fragment {
     List<Bundles> bundles = new ArrayList<Bundles>();
-    private static final String SHOP_URL = "https://fortnite-api.com/v2/shop/br";
+    private static final String SHOP_URL = "https://fortnite-api.com/v2/shop/br/combined";
     ProgressBar progressBar;
     RecyclerView recyclerView;
     boolean alreadyStarted = false;
@@ -43,11 +43,13 @@ public class Fragment1 extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        System.out.println("ner Fige oncreate");
         return inflater.inflate(R.layout.fragment1_layout, container, false);
     }
 
     @Override
     public void onStart() {
+        System.out.println("ner Fige onstart");
         super.onStart();
         if (!alreadyStarted){
             recyclerView = getView().findViewById(R.id.reclyclerView);
