@@ -36,7 +36,7 @@ public class bundle_details extends AppCompatActivity {
     ArrayList<Item> items = new ArrayList<Item>();
     ProgressBar progressBar;
     ConstraintLayout container;
-    String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
+    final String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
     Bundles bundle;
 
     @Override
@@ -105,7 +105,7 @@ public class bundle_details extends AppCompatActivity {
                 finish();
             }
         });
-        dialogBuilder.setMessage("Die Badidetails konnten nicht geladen werden. Versuche es später nochmals.").setTitle("Fehler");
+        dialogBuilder.setMessage("Die Skins konnte nicht geladen werden, überprüfe deine Internetverbindung und versuche es erneut.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }

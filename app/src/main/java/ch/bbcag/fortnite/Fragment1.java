@@ -99,7 +99,7 @@ public class Fragment1 extends Fragment {
                 getActivity().finish();
             }
         });
-        dialogBuilder.setMessage("Die Badidetails konnten nicht geladen werden. Versuche es später nochmals.").setTitle("Fehler");
+        dialogBuilder.setMessage("Der Shop konnte nicht geladen werden, überprüfe deine Internetverbindung und versuche es erneut.").setTitle("Fehler");
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
