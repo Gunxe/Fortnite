@@ -18,10 +18,4 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="Theme.FürFortnite.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
-        <item name="color">@color/violet</item>
-    </style>
-
-    <style name="Theme.FürFortnite.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
