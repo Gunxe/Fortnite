@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FürFortnite">
         <activity android:name=".BundleDetails"
+            android:label=""
             android:theme="@style/Theme.FürFortnite">
 
         </activity>
