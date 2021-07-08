@@ -63,7 +63,7 @@ public class BundleDetails extends AppCompatActivity {
         actionBar = getSupportActionBar();
         if (actionBar != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            actionBar.setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.violet)));
+            actionBar.setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.purple)));
         }
     }
 
