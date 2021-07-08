@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -47,7 +49,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     @Override
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
         //holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
-        Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
+        Glide.with(context).load(bundles.get(position).getImageURL()).transform(new CenterCrop()).into(holder.iconImage);
+        //Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
         switch (bundles.get(position).getItems().get(0).getRarity())
         {
             case "rare":
