@@ -24,6 +24,7 @@ import ch.bbcag.fortnite.R;
 import ch.bbcag.fortnite.BundleDetails;
 import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
+import lombok.Value;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
     List<Bundles> bundles;
@@ -47,8 +48,22 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     public void onBindViewHolder(@NonNull @NotNull ShopViewHolder holder, int position) {
         holder.preis.setText(String.valueOf(bundles.get(position).getPrice()));
         Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
-        holder.iconImage.setBackgroundColor(Color.parseColor("#"+bundles.get(position).getBackground1()));
-        holder.background2.setBackgroundColor(Color.parseColor("#"+bundles.get(position).getBackground2()));
+        switch (bundles.get(position).getItems().get(0).getRarity())
+        {
+            case "rare":
+                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.blue));
+                break;
+            case "epic":
+                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.purple));
+                break;
+            case "uncommon":
+                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.green));
+                break;
+            default:
+                holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.gray));
+        }
+
+
 
         holder.shopLayout.setOnClickListener(new View.OnClickListener() {
             @Override

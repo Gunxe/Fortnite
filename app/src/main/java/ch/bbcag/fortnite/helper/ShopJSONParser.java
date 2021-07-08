@@ -35,6 +35,7 @@ public class ShopJSONParser {
 
             List<Item> items = new ArrayList<>();
             for (int j = 0; j < itemsArray.length(); j++) {
+                items.add(ItemJSONParser.createItemFromJSONObjectShop((JSONObject) itemsArray.get(j)));
                 Item item = new Item();
                 JSONObject itemJSONObject = itemsArray.getJSONObject(j);
                 JSONObject images = itemJSONObject.getJSONObject("images");
