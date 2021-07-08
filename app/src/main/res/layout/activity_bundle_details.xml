@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BundleDetails"
-    android:id="@+id/constraintLayoutItemView">
+    android:id="@+id/constraintLayoutItemView"
+    android:background="@drawable/gradient_bg">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container_test"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:ignore="MissingClass">
 
 
 
@@ -26,9 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="visible"
         app:iss_auto_cycle="true"
-        app:iss_period="3000"
-
-        />
+        app:iss_period="3000" />
 
     <ImageView
         android:id="@+id/skinPicture"
