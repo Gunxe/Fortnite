@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,20 +53,31 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         //Picasso.get().load(bundles.get(position).getImageURL()).into(holder.iconImage);
         switch (bundles.get(position).getItems().get(0).getRarity())
         {
-            case "rare":
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.blue));
-                break;
-            case "epic":
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.purple));
+            case "common":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.common));
                 break;
             case "uncommon":
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.green));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.uncommon));
+                break;
+            case "rare":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.rare));
+                break;
+            case "epic":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.epic));
+                break;
+            case "legendary":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.legendary));
+                break;
+            case "marvel":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.marvel));
+                break;
+            case "dc":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.dc));
                 break;
             default:
-                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.defaultRarity));
         }
         holder.iconImage.setBackgroundColor(context.getResources().getColor(R.color.balck_transparent));
-
 
 
 
@@ -95,7 +105,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         TextView preis;
         ImageView iconImage, background2;
         ConstraintLayout shopLayout;
-        CardView cardView;
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -103,7 +112,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             iconImage = itemView.findViewById(R.id.SkinIcon);
             background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
-            cardView = itemView.findViewById(R.id.cardView_ShopRow);
         }
     }
 

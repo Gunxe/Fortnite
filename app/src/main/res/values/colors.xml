@@ -7,14 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <color name="gray">#FFB2B1B0</color>
-    <color name="green">#FF8FDC4E</color>
-    <color name="blue">#FF43CEF3</color>
-    <color name="purple">#FFED5BFF</color>
-    <color name="orange">#FFEB8F48</color>
-    <color name="red">#FFEE3537</color>
     <color name="balck_transparent">#7D000000</color>
-    <color name="violet">#732FF6</color>
+    <color name="purple">#732FF6</color>
     <color name="pink">#E43CD7</color>
+
+    <color name="common">#FFB2B1B0</color>
+    <color name="uncommon">#FF8FDC4E</color>
+    <color name="rare">#FF43CEF3</color>
+    <color name="epic">#FFED5BFF</color>
+    <color name="legendary">#FFEB8F48</color>
+    <color name="marvel">#FFEE3537</color>
+    <color name="dc">#FF6094CF</color>
+    <color name="defaultRarity">#FF41B9CA</color>
+
 </resources>
