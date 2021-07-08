@@ -2,6 +2,7 @@ package ch.bbcag.fortnite;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.transition.Slide;
@@ -39,11 +40,12 @@ import ch.bbcag.fortnite.model.Item;
 public class BundleDetails extends AppCompatActivity {
     ImageView skinImage;
     TextView descriptionText, priceText;
-    ArrayList<Item> items = new ArrayList<Item>();
+    ArrayList<Item> items = new ArrayList<>();
     ProgressBar progressBar;
     ConstraintLayout container;
     final String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
     ImageSlider imageSlider;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +60,10 @@ public class BundleDetails extends AppCompatActivity {
         imageSlider = findViewById(R.id.imageSlider);
         getItems();
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         if (actionBar != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.violet)));
         }
     }
 
@@ -127,6 +130,12 @@ public class BundleDetails extends AppCompatActivity {
             images.add(new SlideModel(item.getImageURL(), null ));
         }
         imageSlider.setImageList(images);
+
+        if(getIntent().hasExtra("bundleName")){
+            actionBar.setTitle(getIntent().getStringExtra("bundleName"));
+        }else {
+            actionBar.setTitle(items.get(0).getName());
+        }
     }
 
     @Override
