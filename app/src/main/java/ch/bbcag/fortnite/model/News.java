@@ -1,7 +1,5 @@
 package ch.bbcag.fortnite.model;
 
-import android.media.Image;
-
 import lombok.Data;
 
 public @Data class News {

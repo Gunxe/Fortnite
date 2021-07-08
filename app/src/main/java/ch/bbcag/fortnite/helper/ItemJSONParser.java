@@ -1,13 +1,8 @@
 package ch.bbcag.fortnite.helper;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
 
 public class ItemJSONParser {

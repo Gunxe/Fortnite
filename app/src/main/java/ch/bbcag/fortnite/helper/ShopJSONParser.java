@@ -1,17 +1,11 @@
 package ch.bbcag.fortnite.helper;
 
-import android.os.Bundle;
-
-import com.android.volley.toolbox.JsonArrayRequest;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.namespace.QName;
 
 import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
@@ -37,18 +31,18 @@ public class ShopJSONParser {
             bundle.setBackground2(colors.getString("Background_Color_B"));
 
             //Items
-            JSONArray ItemsArray = bundleObject.getJSONArray("items");
+            JSONArray itemsArray = bundleObject.getJSONArray("items");
 
             List<Item> items = new ArrayList<>();
-            for (int j = 0; j < ItemsArray.length(); j++) {
+            for (int j = 0; j < itemsArray.length(); j++) {
                 Item item = new Item();
-                JSONObject ItemJSONObject = ItemsArray.getJSONObject(j);
-                JSONObject images = ItemJSONObject.getJSONObject("images");
-                item.setName(ItemJSONObject.getString("name"));
+                JSONObject itemJSONObject = itemsArray.getJSONObject(j);
+                JSONObject images = itemJSONObject.getJSONObject("images");
+                item.setName(itemJSONObject.getString("name"));
                 item.setIconImgURL(images.getString("icon"));
                 item.setImageURL("featured");
-                item.setDescription(ItemJSONObject.getString("description"));
-                item.setItemId(ItemJSONObject.getString("id"));
+                item.setDescription(itemJSONObject.getString("description"));
+                item.setItemId(itemJSONObject.getString("id"));
                 items.add(item);
             }
             bundle.setItems(items);
