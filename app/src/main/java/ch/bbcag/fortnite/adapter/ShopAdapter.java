@@ -54,16 +54,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         switch (bundles.get(position).getItems().get(0).getRarity())
         {
             case "rare":
-                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.blue));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.blue));
                 break;
             case "epic":
-                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.purple));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.purple));
                 break;
             case "uncommon":
-                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.green));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.green));
                 break;
             default:
-                holder.background2.setBackgroundColor(context.getResources().getColor(R.color.gray));
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
         }
 
 
@@ -99,6 +99,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             iconImage = itemView.findViewById(R.id.SkinIcon);
             background2 = itemView.findViewById(R.id.background2);
             shopLayout = itemView.findViewById(R.id.showLayout);
+
         }
     }
 
