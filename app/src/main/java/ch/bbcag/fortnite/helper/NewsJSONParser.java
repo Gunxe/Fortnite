@@ -9,7 +9,7 @@ import java.util.List;
 
 import ch.bbcag.fortnite.model.News;
 
-public class NewsJSONParser {
+public class  NewsJSONParser {
     public static List<News> createArticleFromJsonString(JSONObject response) throws JSONException {
         List<News> articles = new ArrayList<News>();
 
@@ -20,6 +20,9 @@ public class NewsJSONParser {
             JSONObject articleObject = motds.getJSONObject(i);
             try {
                 article.setTabTitle(articleObject.getString("tabTitle"));
+                if(article.getTabTitle() == "null") {
+                    article.setTabTitle(articleObject.getString("title"));
+                }
                 article.setTitle(articleObject.getString("title"));
                 article.setBody(articleObject.getString("body"));
                 article.setImage(articleObject.getString("image"));
