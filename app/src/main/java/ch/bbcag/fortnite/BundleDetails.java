@@ -3,9 +3,7 @@ package ch.bbcag.fortnite;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.transition.Slide;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,30 +20,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 import ch.bbcag.fortnite.helper.ItemJSONParser;
-import ch.bbcag.fortnite.model.Bundles;
 import ch.bbcag.fortnite.model.Item;
 
 public class BundleDetails extends AppCompatActivity {
-    ImageView skinImage;
-    TextView descriptionText, priceText;
-    ArrayList<Item> items = new ArrayList<>();
-    ProgressBar progressBar;
-    ConstraintLayout container;
-    final String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
-    ImageSlider imageSlider;
-    ActionBar actionBar;
+    private ImageView skinImage;
+    private TextView descriptionText, priceText;
+    private ArrayList<Item> items = new ArrayList<>();
+    private ProgressBar progressBar;
+    private ConstraintLayout container;
+    private final String API_URL = "https://fortnite-api.com/v2/cosmetics/br/";
+    private ImageSlider imageSlider;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

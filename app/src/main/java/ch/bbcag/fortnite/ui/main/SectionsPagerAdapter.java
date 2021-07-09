@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import ch.bbcag.fortnite.Fragment1;
-import ch.bbcag.fortnite.Fragment2;
+import ch.bbcag.fortnite.ShopFragment;
+import ch.bbcag.fortnite.NewsFragment;
 import ch.bbcag.fortnite.R;
 
 /**
@@ -32,10 +32,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new Fragment1();
+                fragment = new ShopFragment();
                 break;
             case 1:
-                fragment = new Fragment2();
+                fragment = new NewsFragment();
                 break;
         }
         return fragment;
