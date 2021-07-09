@@ -20,8 +20,8 @@ import ch.bbcag.fortnite.R;
 import ch.bbcag.fortnite.model.News;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.newsViewHolder> {
-    Context ct;
-    List<News> articles;
+    private Context ct;
+    private List<News> articles;
 
     public NewsAdapter (Context ct, List<News> articles) {
         this.ct = ct;
@@ -53,8 +53,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.newsViewHolder
 
     public class newsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tabTitle, title, description;
-        ImageView image;
+        private TextView tabTitle, title, description;
+        private ImageView image;
 
         public newsViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);

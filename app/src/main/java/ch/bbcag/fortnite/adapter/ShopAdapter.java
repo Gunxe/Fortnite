@@ -30,8 +30,8 @@ import ch.bbcag.fortnite.model.Item;
 import lombok.Value;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
-    List<Bundles> bundles;
-    Context context;
+    private List<Bundles> bundles;
+    private Context context;
 
     public ShopAdapter(Context ct, List<Bundles> bundles){
         context = ct;
@@ -111,9 +111,9 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     }
 
     public class ShopViewHolder extends RecyclerView.ViewHolder {
-        ImageView iconImage, background2;
-        ConstraintLayout shopLayout;
-        TextView name;
+        private ImageView iconImage, background2;
+        private ConstraintLayout shopLayout;
+        private TextView name;
 
         public ShopViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
