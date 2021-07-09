@@ -1,0 +1,59 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>455</x><y>470</y><w>370</w><h>70</h></coordinates><panel_attributes>NewsJSONParser
+--
+
+--
++ createArticleFromJsonString(response: JSONObject): List&lt;News&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>455</x><y>580</y><w>190</w><h>220</h></coordinates><panel_attributes>News
+--
+- tabTitle: String
+- title: String
+- body: String
+- image: String
+--
++ setTabTitle(tabTitle: String): void
++ getTabTitle(): String
++ setTitle(title: String): void
++ getTitle(): String
++ setBody(body: String): void
++ getBody(): String
++ setImage(image: String): void
++ getImage(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>455</x><y>200</y><w>410</w><h>230</h></coordinates><panel_attributes>NewsAdapter
+--
+~ ct: Context
+~ articles: News[*]
+--
++ NewsAdapter(ct: Context, articles: List&lt;News&gt;)
++ onCreateViewHolder(parent: ViewGroup, viewType: int): newsViewHolder
++ onBindViewHolder(holder: newsViewHolder, position: int): void
++ getItemCount(): int
+{innerclass
+newsViewHolder
+--
+~ tabTitle: TextView
+~ title: TextView
+~ description: TextView
+~ image: ImageView
+--
++ newsViewHolder(itemView: View)
+innerclass}
+group=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>645</x><y>160</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>645</x><y>150</y><w>250</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes><additional_attributes>60;10;230;10;230;160;10;160;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>605</x><y>140</y><w>100</w><h>30</h></coordinates><panel_attributes>RecyclerView
+group=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>236</y><w>110</w><h>440</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+r1=~ articles</panel_attributes><additional_attributes>90;410;10;410;10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>638</x><y>630</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+r1=~ articles</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>775</x><y>620</y><w>530</w><h>180</h></coordinates><panel_attributes>Fragment2
+--
+~ articles: News[*]
+_- NEWS_URL: String_
+~ progressBar: ProgressBar
+~ recyclerView: RecyclerView
+~ alreadyStarted: boolean
+--
++ onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View
++ onStart(): void
+- getNews(): void
+- generateAlertDialog(): void
+group=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>985</x><y>560</y><w>100</w><h>30</h></coordinates><panel_attributes>Fragment
+group=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1025</x><y>580</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element></diagram>
