@@ -61,11 +61,6 @@ public class BundleDetails extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     private void getItems() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         itemRekursion(getIntent().getStringArrayListExtra("itemIds"), 0, items, queue);
