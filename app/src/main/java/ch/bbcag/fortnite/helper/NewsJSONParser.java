@@ -16,6 +16,7 @@ public class  NewsJSONParser {
         JSONArray motds = response.getJSONObject("data").getJSONObject("br").getJSONArray("motds");
 
         for (int i = 0; i < motds.length(); i++) {
+            System.out.println("potato");
             News article = new News();
             JSONObject articleObject = motds.getJSONObject(i);
             try {

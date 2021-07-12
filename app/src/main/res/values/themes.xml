@@ -20,7 +20,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FürFortnite.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.FürFortnite.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="fontFamily">@font/burbank_bold</item>
+    </style>
 
     <style name="Theme.FürFortnite.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

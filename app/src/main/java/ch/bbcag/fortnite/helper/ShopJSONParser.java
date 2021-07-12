@@ -24,16 +24,6 @@ public class ShopJSONParser {
         for (int i = 0; i < entries.length(); i++) {
             Bundles bundle = new Bundles();
             JSONObject bundleObject = entries.getJSONObject(i);
-            try {
-                JSONObject bundleInfos = bundleObject.getJSONObject("bundle");
-                bundle.setImageURL(bundleInfos.getString("image"));
-                bundle.setName(bundleInfos.getString("name"));
-            }catch (Exception e){
-                JSONObject imageObject =  bundleObject.getJSONObject("newDisplayAsset").getJSONArray("materialInstances").getJSONObject(0).getJSONObject("images");
-                bundle.setImageURL(imageObject.getString("OfferImage"));
-            }
-            JSONObject colors =  bundleObject.getJSONObject("newDisplayAsset").getJSONArray("materialInstances").getJSONObject(0).getJSONObject("colors");
-            bundle.setPrice(bundleObject.getInt("finalPrice"));
 
             JSONArray itemsArray = bundleObject.getJSONArray("items");
 
@@ -41,6 +31,22 @@ public class ShopJSONParser {
             for (int j = 0; j < itemsArray.length(); j++) {
                 items.add(ItemJSONParser.createItemFromJSONObjectShop((JSONObject) itemsArray.get(j)));
             }
+
+            try {
+                JSONObject bundleInfos = bundleObject.getJSONObject("bundle");
+                bundle.setImageURL(bundleInfos.getString("image"));
+                bundle.setName(bundleInfos.getString("name"));
+            }catch (JSONException e){
+                try {
+                    JSONObject imageObject = bundleObject.getJSONObject("newDisplayAsset").getJSONArray("materialInstances").getJSONObject(0).getJSONObject("images");
+                    bundle.setImageURL(imageObject.getString("OfferImage"));
+                }catch (JSONException exception){
+                    bundle.setImageURL(items.get(0).getImageURL());
+                }
+            }
+            bundle.setPrice(bundleObject.getInt("finalPrice"));
+
+
             bundle.setItems(items);
             bundles.add(bundle);
         }

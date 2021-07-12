@@ -19,5 +19,7 @@
     <color name="marvel">#FFEE3537</color>
     <color name="dc">#FF6094CF</color>
     <color name="defaultRarity">#FF41B9CA</color>
+    <color name="shadow">#FF949494</color>
+    <color name="icon">#FF52e0e0</color>
 
 </resources>

@@ -75,7 +75,7 @@ public class ShopFragment extends Fragment {
                     progressBar.setVisibility(View.GONE);
                     recyclerView.getAdapter().notifyDataSetChanged();
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    generateAlertDialog();
                 }
             }
         }, new Response.ErrorListener() {

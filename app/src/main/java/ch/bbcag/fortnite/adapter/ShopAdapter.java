@@ -82,6 +82,12 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             case "dc":
                 holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.dc));
                 break;
+            case "shadow":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.shadow));
+                break;
+            case "icon":
+                holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.icon));
+                break;
             default:
                 holder.shopLayout.setBackgroundColor(context.getResources().getColor(R.color.defaultRarity));
         }
